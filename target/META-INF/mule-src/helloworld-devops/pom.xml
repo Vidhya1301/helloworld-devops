@@ -25,49 +25,45 @@
 				<version>3.0.0</version>
 			</plugin>
 			<plugin>
-  				<groupId>org.mule.tools.maven</groupId>
-  				<artifactId>mule-maven-plugin</artifactId>
-  				<version>3.3.5</version>
-  				<extensions>true</extensions>
-			<configuration>
+				<groupId>org.mule.tools.maven</groupId>
+				<artifactId>mule-maven-plugin</artifactId>
+				<version>3.3.5</version>
+				<extensions>true</extensions>
+				<configuration>
 					<cloudHubDeployment>
 						<uri>https://anypoint.mulesoft.com</uri>
 						<muleVersion>4.4.0</muleVersion>
-						<username>kvidhya</username>
-						<password>Behappy@123</password>
+						<username>${anypoint.username}</username>
+						<password>${anypoint.password}</password>
 						<businessGroup>Noise</businessGroup>
 						<workers>1</workers>
-						<workerType>Micro</workerType>
+						<workerType>SMALL</workerType>
 						<region>us-west-1</region>
 						<environment>Sandbox</environment>
 						<applicationName>Test</applicationName>
 						<properties>
-								<mule.env>${mule.env}</mule.env>
-								<!--  encrypt.key>${encrypt.key}</encrypt.key--> 	
-								<anypoint.platform.client_id>${anypoint.platform.client_id}</anypoint.platform.client_id>
-								<anypoint.platform.client_secret>${anypoint.platform.client_secret}</anypoint.platform.client_secret>
-								<!-- api.id>${ilg.api.version}</api.id-->
-								<anypoint.platform.config.analytics.agent.enabled>true</anypoint.platform.config.analytics.agent.enabled>
+							<mule.env>${mule.env}</mule.env>
+							<!--  encrypt.key>${encrypt.key}</encrypt.key-->
+							<anypoint.platform.client_id>${anypoint.platform.client_id}</anypoint.platform.client_id>
+							<anypoint.platform.client_secret>${anypoint.platform.client_secret}</anypoint.platform.client_secret>
+							<!-- api.id>${ilg.api.version}</api.id-->
+							<anypoint.platform.config.analytics.agent.enabled>true</anypoint.platform.config.analytics.agent.enabled>
 						</properties>
 					</cloudHubDeployment>
-						<executions>
-							<execution>
-								<id>deploy</id>
-								<goals>
-									<goal>deploy</goal>
-								</goals>
+					<executions>
+						<execution>
+							<id>deploy</id>
+							<goals>
+								<goal>deploy</goal>
+							</goals>
 							<configuration>
 								<classifier>mule-application</classifier>
 							</configuration>
-							</execution>
-						</executions>
-					
-                    		<classifier>mule-application</classifier>
-            </configuration>
-            </plugin>
-			
-			
-			
+						</execution>
+					</executions>
+					<classifier>mule-application</classifier>
+				</configuration>
+			</plugin>
 		</plugins>
 	</build>
 
